@@ -20,25 +20,31 @@ class Board
     end
   end
 
-    def lands_on_snake_or_ladder()
-      for key,values in @snakes_ladders
-        if @person1.position== key
-          @person1.position+= values
-        elsif @person2.position == key
-          @person2.position+=values
-        end
+  def lands_on_snake_or_ladder()
+    for key,values in @snakes_ladders
+      if @person1.position== key
+        @person1.position+= values
+      elsif @person2.position == key
+        @person2.position+=values
       end
     end
+  end
 
-    def win_check()
-      if @person1.position==end_square
-        message = "Congratulations #{@person1.name}, you win."
-        return message
-      elsif @person2.position==end_square
-        message= "Congratulations #{@person2.name}, you win."
-        return message
-      end
+  def win_check()
+  if @person1.position==end_square
+      message = "Congratulations #{@person1.name}, you win."
+      return message
+    elsif @person2.position==end_square
+      message= "Congratulations #{@person2.name}, you win."
+      return message
+    elsif @person1.position>end_square
+      message = "Congratulations #{@person1.name}, you win."
+      return message
+    elsif @person2.position>end_square
+      message= "Congratulations #{@person2.name}, you win."
+      return message
     end
+  end
 
 
 end
