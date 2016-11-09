@@ -3,7 +3,7 @@ class Board
   attr_reader :end_square, :snakes_ladders
   attr_accessor :person1, :person2
 
-  def initialize(end_square,person1,person2)
+  def initialize(end_square,person1,person2, snakes_ladders)
     @end_square=end_square
     @person1 = person1
     @person2 = person2
@@ -18,8 +18,15 @@ class Board
       @person2.position+=dice
       puts "#{@person2.name}, you have rolled #{dice} and are now on position #{@person2.position}."
     end
+  end
 
-    
+    def lands_on_snake_or_ladder()
+      for key,values in @snakes_ladders
+        if @person1.position== key
+        @person1.position+= values
+        end
+      end
+    end
 
     def win_check()
       if @person1.position==end_square
@@ -31,15 +38,5 @@ class Board
       end
     end
 
-  end
-
-# def lands_on_snake_or_ladder
-#   for snake in @snakes
-#     snake=@person1.position
-#     if snake == @snakes.key[50]
-#       snake==@snakes.values
-#     end
-#   end
-#  end
 
 end
