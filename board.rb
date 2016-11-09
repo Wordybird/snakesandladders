@@ -3,7 +3,7 @@ class Board
   attr_reader :end_square, :snakes_ladders
   attr_accessor :person1, :person2
 
-  def initialize(end_square,person1,person2, snakes_ladders)
+  def initialize(end_square, person1, person2, snakes_ladders)
     @end_square=end_square
     @person1 = person1
     @person2 = person2
