@@ -1,7 +1,6 @@
 require ("minitest/autorun")
 require ("minitest/rg")
 require_relative("players")
-require_relative("snakes_or_ladders")
 require_relative("board")
 
 class TestBoard < Minitest::Test
