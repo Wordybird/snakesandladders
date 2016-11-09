@@ -9,7 +9,7 @@ class TestBoard < Minitest::Test
   def setup
     @person1 = Players.new("Ben", 0)
     @person2= Players.new("Winnie",0)
-    @snakes_ladders={50=>-22,23=>-13,75=>-46,11=>-3,12=>34,15=>45,56=>75}
+    @snakes_ladders={50=>-22,23=>-13,75=>-46,11=>-3,12=>22,15=>30,56=>19}
     @end_square = 99
     @board = Board.new(@end_square,@person1,@person2, @snakes_ladders)
   end
