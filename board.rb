@@ -31,7 +31,7 @@ class Board
   end
 
   def win_check()
-  if @person1.position==end_square
+    if @person1.position==end_square
       message = "Congratulations #{@person1.name}, you win."
       return message
     elsif @person2.position==end_square
