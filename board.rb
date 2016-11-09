@@ -23,7 +23,9 @@ class Board
     def lands_on_snake_or_ladder()
       for key,values in @snakes_ladders
         if @person1.position== key
-        @person1.position+= values
+          @person1.position+= values
+        elsif @person2.position == key
+          @person2.position+=values
         end
       end
     end
