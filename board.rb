@@ -1,4 +1,5 @@
 class Board
+
   attr_reader :end_square, :snakes_ladders
   attr_accessor :person1, :person2
 
@@ -9,6 +10,10 @@ class Board
     # @snakes_ladders = snakes_ladders
   end
 
+  def roll_dice()
+    dice=1+rand(6)
+    @person1.position+=dice
+  end
 
 # def lands_on_snake
 #   for snake in @snakes
@@ -21,14 +26,11 @@ class Board
 
 def win_check()
   if @person1.position==end_square
-  message = "Congratulations, you win."
+  message = "Congratulations #{@person1}, you win."
+elsif @person2.position==end_square
+  message= "Congratulations #{@person2}, you win."
   return message
   end
 end
-
-
-
-
-
 
 end
