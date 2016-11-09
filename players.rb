@@ -1,12 +1,13 @@
 class Players
+
+  attr_accessor :name, :position
+  
   def initialize(name,position)
     @name=name
-    @position=0
+    @position=position
     @players={}
   end
 
-  attr_reader :name, :position
-  
 
 
 end
