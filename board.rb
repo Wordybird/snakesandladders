@@ -7,15 +7,33 @@ class Board
     @end_square=end_square
     @person1 = person1
     @person2 = person2
-    # @snakes_ladders = snakes_ladders
+    @snakes_ladders = snakes_ladders
   end
 
   def roll_dice()
-    dice=1+rand(6)
-    @person1.position+=dice
+    until @person1.position=end_square or @person1.position>end_square or @person2.position=end_square or @person2.position>end_square
+      dice=1+rand(6)
+      @person1.position+=dice
+      puts "#{@person1.name}, you have rolled #{dice} and are now on position #{@person1.position}."
+      @person2.position+=dice
+      puts "#{@person2.name}, you have rolled #{dice} and are now on position #{@person2.position}."
+    end
+
+    
+
+    def win_check()
+      if @person1.position==end_square
+        message = "Congratulations #{@person1.name}, you win."
+        return message
+      elsif @person2.position==end_square
+        message= "Congratulations #{@person2.name}, you win."
+        return message
+      end
+    end
+
   end
 
-# def lands_on_snake
+# def lands_on_snake_or_ladder
 #   for snake in @snakes
 #     snake=@person1.position
 #     if snake == @snakes.key[50]
@@ -23,14 +41,5 @@ class Board
 #     end
 #   end
 #  end
-
-def win_check()
-  if @person1.position==end_square
-  message = "Congratulations #{@person1}, you win."
-elsif @person2.position==end_square
-  message= "Congratulations #{@person2}, you win."
-  return message
-  end
-end
 
 end

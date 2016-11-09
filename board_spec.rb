@@ -9,7 +9,7 @@ class TestBoard < Minitest::Test
   def setup
     @person1 = Players.new("Ben", 0)
     @person2= Players.new("Winnie",0)
-    # @snakes_ladders={50=>-22,23=>-11,75=>-46,11=>-3,12=>34,15=>45,56=>75}
+    @snakes_ladders={50=>-22,23=>-11,75=>-46,11=>-3,12=>34,15=>45,56=>75}
     @end_square = 99
     @board = Board.new(@end_square,@person1,@person2)
   end
@@ -22,20 +22,21 @@ class TestBoard < Minitest::Test
   def test_win_check
     @person2.position=99
     assert_equal(99,@person2.position)
-    assert_equal( "Congratulations #{@person2}, you win.", @board.win_check() )
+    assert_equal( "Congratulations #{@person2.name}, you win.", @board.win_check() )
   end
 
-  def test_roll_dice
+  def test_roll_dice_person1
     @board.roll_dice()
-    assert_includes((1..6),@person1.position)
+    assert_includes((0..99),@person1.position)
   end
 
-  # def test_lands_on_snake
-  #   @person1
+  def test_roll_dice_person2
+    @board.roll_dice()
+    assert_includes((0..99),@person2.position)
+  end  
+
+
+  # def test_lands_on_snake_or_ladder
   #   assert_equal(22,@person1.position)
-  # end
-
-  # def test_lands_on_ladder
-
   # end
 end
